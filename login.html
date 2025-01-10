@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Adventure Outfitters</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+
+    const users = [
+      { username: "NovaLidiyana", password: "bisapastibisa" },
+      { username: "gasnanjak", password: "pastinanjak" }
+    ];
+
+    function login(event) {
+      event.preventDefault(); 
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const user = users.find(u => u.username === username && u.password === password);
+
+      if (user) {
+        alert("Login berhasil!");
+        window.location.href = "index.html"; 
+      } else {
+        alert("Username atau password salah!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+    <form onsubmit="login(event)">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+      
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+</body>
+</html>
